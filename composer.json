@@ -3,6 +3,7 @@
         "symfony/routing": "^2.6",
         "symfony/http-foundation": "^2.6",
         "twig/twig": "~1.0",
-        "slim/slim": "~2.0"
+        "slim/slim": "~2.0",
+        "vlucas/phpdotenv": "^5.5"
     }
 }
