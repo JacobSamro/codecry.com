@@ -1,0 +1,14 @@
+version: '3'
+services:
+  php-app:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    env_file:
+      - .env
+    ports:
+      - "8080:80"
+    volumes:
+      - .:/var/www/html
+    environment:
+      - COMPOSER_ALLOW_SUPERUSER=1
