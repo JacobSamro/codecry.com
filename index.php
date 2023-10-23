@@ -1,6 +1,7 @@
 <?php
-$GLOBALS['DEPLOY']  = false;
-$GLOBALS['BASE_URL'] = ''.($GLOBALS['DEPLOY']  ? "http://codecry.com/" : "http://localhost/codecry/codecry/");
+$GLOBALS['DEPLOY']  = true;
+$GLOBALS['BASE_URL'] = ''.($GLOBALS['DEPLOY']  ? "https://code.samro.in/" : "http://localhost/codecry/codecry/");
+
 
 require_once 'functions.php';
 require 'Code.php';
@@ -8,6 +9,9 @@ require 'Code.php';
 require 'libs/Parsedown.php';
 
 require 'vendor/autoload.php';
+
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->load();
 
 Twig_Autoloader::register();
 
@@ -73,6 +77,7 @@ $app->get('/language/:language/',function($language){
 
     $pages = ceil(totalProgramsInLanguage($language)/10)-1;
 
+    // @JacobSamro what is this variable naming da ? :P
 
     $CodeStats = code_num_stats();
 
